@@ -3,6 +3,7 @@ package src;
 import java.util.*;
 
 public class Gradina {
+    private static Gradina instance;
     public int size;
     public String name;
     private int value;
@@ -11,15 +12,22 @@ public class Gradina {
     private Planta planta = new Planta(3, "cartof", 10);
     private List<Planta> plants = new ArrayList<Planta>();
 
-    public Gradina(int size, int value) {
-        this.size = size;
-        this.value = value;
+    private Gradina() {
+        this.size = 10;
+        this.value = 25;
     }
 
-    public Gradina(int size, int value, String name) {
-        this(size, value);
-        this.name = name;
+    public static Gradina getInstance() {
+        if (instance == null) {
+            instance = new Gradina();
+        }
+        return instance;
     }
+
+    // public Gradina(int size, int value, String name) {
+    // this(size, value);
+    // this.name = name;
+    // }
 
     public void setValue(int value) {
         this.value = value;

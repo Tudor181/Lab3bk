@@ -4,7 +4,7 @@ import pachet.Floare;
 
 public class Main {
     public static void main(String args[]) {
-        Gradina gradina = new Gradina(0, 0);
+        Gradina gradina = Gradina.getInstance();
         gradina.createPlant(10, "ceapa");
         gradina.getProfitOnPlant();
         final boolean healthyPlants = gradina.checkPlants();
